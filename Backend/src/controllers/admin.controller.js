@@ -1,6 +1,6 @@
-import User from '../models/User.js';
-import Booking from '../models/Booking.js';
-import Feedback from '../models/Feedback.js';
+import User from '../models/user.model.js';
+import Booking from '../models/booking.model.js';
+import Feedback from '../models/feedback.model.js';
 
 // Gestionar usuarios
 export const manageUsers = async (req, res) => {

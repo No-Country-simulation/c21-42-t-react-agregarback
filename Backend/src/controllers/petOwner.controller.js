@@ -1,5 +1,5 @@
-import Pet from '../models/Pet.js';
-import Booking from '../models/Booking.js';
+import Pet from '../models/pet.model.js';
+import Booking from '../models/booking.model.js';
 
 // Obtener mascotas del dueño
 export const getPets = async (req, res) => {

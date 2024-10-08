@@ -1,4 +1,4 @@
-import Booking from '../models/Booking.js';
+import Booking from '../models/booking.model.js';
 
 // Crear nueva reserva
 export const createBooking = async (req, res) => {

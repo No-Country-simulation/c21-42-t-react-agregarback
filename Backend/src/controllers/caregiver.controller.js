@@ -1,5 +1,5 @@
-import Caregiver from '../models/Caregiver.js';
-import Booking from '../models/Booking.js';
+import Caregiver from '../models/caregiver.model.js';
+import Booking from '../models/booking.model.js';
 
 // Registro de cuidadores
 export const registerCaregiver = async (req, res) => {
