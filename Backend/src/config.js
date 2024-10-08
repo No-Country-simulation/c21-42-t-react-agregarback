@@ -1,0 +1,1 @@
+export const secretToken = "mysecrettoken"; // Token secreto para firmar JWT
