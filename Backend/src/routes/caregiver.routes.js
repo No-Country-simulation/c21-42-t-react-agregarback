@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { registerCaregiver, updateCaregiverProfile, viewBookings, completeBooking } from '../controllers/caregiver.controller.js';
+import { registerCaregiver, updateCaregiverProfile } from '../controllers/caregiver.controller.js';
 
 const router = Router();
 

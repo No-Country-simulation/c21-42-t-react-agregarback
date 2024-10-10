@@ -1,6 +1,7 @@
 import Caregiver from '../models/caregiver.model.js';
 import { registerCaregiverSchema, updateCaregiverProfileSchema } from '../schemas/caregiver.schema.js';
 
+
 // Registro de cuidadores
 export const registerCaregiver = async (req, res) => {
     try {
@@ -63,3 +64,4 @@ export const deleteCaregiverProfile = async (req, res) => {
         res.status(500).json({ message: 'Error al eliminar perfil de cuidador', error });
     }
 };
+
