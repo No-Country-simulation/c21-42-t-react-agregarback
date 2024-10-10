@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run clean && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tailwindcss": "tailwindcss -i ./src/App.css -o ./public/output.css --watch"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
