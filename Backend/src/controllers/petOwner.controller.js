@@ -1,5 +1,7 @@
 import Pet from '../models/pet.model.js';
 import Booking from '../models/booking.model.js';
+import { createPetSchema, updatePetSchema, getPetSchema, deletePetSchema } from '../schemas/pet.schema.js';
+import { createBookingSchema } from '../schemas/booking.schema.js';
 
 // Obtener mascotas del dueño
 export const getPets = async (req, res) => {
@@ -14,6 +16,9 @@ export const getPets = async (req, res) => {
 // Obtener una mascota específica del dueño
 export const getPet = async (req, res) => {
     try {
+        // Validar datos de entrada
+        getPetSchema.parse(req.params);
+
         const { petId } = req.params;
         const pet = await Pet.findOne({ _id: petId, owner: req.userId });
         if (!pet) {
@@ -21,6 +26,9 @@ export const getPet = async (req, res) => {
         }
         res.json(pet);
     } catch (error) {
+        if (error.name === 'ZodError') {
+            return res.status(400).json({ message: 'Datos de entrada inválidos', errors: error.errors });
+        }
         res.status(500).json({ message: 'Error al obtener la mascota', error });
     }
 };
@@ -28,14 +36,17 @@ export const getPet = async (req, res) => {
 // Añadir una mascota
 export const addPet = async (req, res) => {
     try {
+        // Validar datos de entrada
+        createPetSchema.parse(req.body);
+
         const { name, type, age } = req.body;
-        if (!name || !type || !age) {
-            return res.status(400).json({ message: 'Todos los campos son obligatorios' });
-        }
         const newPet = new Pet({ name, type, age, owner: req.userId });
         await newPet.save();
         res.status(201).json({ message: 'Mascota añadida exitosamente', pet: newPet });
     } catch (error) {
+        if (error.name === 'ZodError') {
+            return res.status(400).json({ message: 'Datos de entrada inválidos', errors: error.errors });
+        }
         res.status(500).json({ message: 'Error al añadir mascota', error });
     }
 };
@@ -43,6 +54,9 @@ export const addPet = async (req, res) => {
 // Actualizar mascota
 export const updatePet = async (req, res) => {
     try {
+        // Validar datos de entrada
+        updatePetSchema.parse({ id: req.params.petId, body: req.body });
+
         const { petId } = req.params;
         const updatedPet = await Pet.findOneAndUpdate({ _id: petId, owner: req.userId }, req.body, { new: true });
         if (!updatedPet) {
@@ -50,6 +64,9 @@ export const updatePet = async (req, res) => {
         }
         res.json(updatedPet);
     } catch (error) {
+        if (error.name === 'ZodError') {
+            return res.status(400).json({ message: 'Datos de entrada inválidos', errors: error.errors });
+        }
         res.status(500).json({ message: 'Error al actualizar la mascota', error });
     }
 };
@@ -57,6 +74,9 @@ export const updatePet = async (req, res) => {
 // Eliminar mascota
 export const deletePet = async (req, res) => {
     try {
+        // Validar datos de entrada
+        deletePetSchema.parse(req.params);
+
         const { petId } = req.params;
         const deletedPet = await Pet.findOneAndDelete({ _id: petId, owner: req.userId });
         if (!deletedPet) {
@@ -64,6 +84,9 @@ export const deletePet = async (req, res) => {
         }
         res.json({ message: 'Mascota eliminada' });
     } catch (error) {
+        if (error.name === 'ZodError') {
+            return res.status(400).json({ message: 'Datos de entrada inválidos', errors: error.errors });
+        }
         res.status(500).json({ message: 'Error al eliminar la mascota', error });
     }
 };
@@ -71,14 +94,17 @@ export const deletePet = async (req, res) => {
 // Reservar un servicio
 export const bookService = async (req, res) => {
     try {
+        // Validar datos de entrada
+        createBookingSchema.parse(req.body);
+
         const { service, date, caregiverId } = req.body;
-        if (!service || !date || !caregiverId) {
-            return res.status(400).json({ message: 'Todos los campos son obligatorios' });
-        }
         const booking = new Booking({ service, date, owner: req.userId, caregiver: caregiverId });
         await booking.save();
         res.status(201).json({ message: 'Servicio reservado exitosamente', booking });
     } catch (error) {
+        if (error.name === 'ZodError') {
+            return res.status(400).json({ message: 'Datos de entrada inválidos', errors: error.errors });
+        }
         res.status(500).json({ message: 'Error al reservar el servicio', error });
     }
 };
