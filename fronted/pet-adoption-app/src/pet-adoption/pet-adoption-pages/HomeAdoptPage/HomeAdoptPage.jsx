@@ -1,8 +1,12 @@
-import React from 'react';
+import Navbar from "../Navbar/Navbar";
 
 const HomeAdoptPage = () => {
   return (
-    <h1>Home Adopt Page</h1>
+    <div>
+      <Navbar />
+<h1>Home Adopt Page</h1>
+    </div>
+    
   );
 };
 
