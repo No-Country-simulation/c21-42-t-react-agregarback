@@ -12,7 +12,7 @@ const app = express();
 
 // Configuración de CORS
 app.use(cors({
-    origin: 'https://ourpetcareplatform.com', // Aquí colocarías el dominio de tu frontend
+    origin: '*', // Aquí se coloca el dominio de tu frontend
     credentials: true,
 }));
 
