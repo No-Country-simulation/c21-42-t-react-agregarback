@@ -1,0 +1,27 @@
+.blue-color-background {
+    background-color: #76a6c2;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.height-auto {
+    height: auto;
+}
+
+.border-card {
+    border: thin solid #535151;
+}
+
+.border-image {
+    border: thin solid #00f;
+}
+
+.blue-dark-background-color {
+    background-color: #23539b;
+}

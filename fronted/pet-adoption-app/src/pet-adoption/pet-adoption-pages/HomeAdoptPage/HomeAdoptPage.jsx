@@ -1,8 +1,13 @@
-import React from 'react';
+import ContainerCardsAnimals from "../../components/ContainerCardsAnimals/ContainerCardsAnimals";
+import Navbar from "../../components/Navbar/Navbar";
+import './HomeAdoptPage.css';
 
 const HomeAdoptPage = () => {
   return (
-    <h1>Home Adopt Page</h1>
+    <div className="bg-[#F4F0EF]">
+      <Navbar />
+      <ContainerCardsAnimals />
+    </div>
   );
 };
 
