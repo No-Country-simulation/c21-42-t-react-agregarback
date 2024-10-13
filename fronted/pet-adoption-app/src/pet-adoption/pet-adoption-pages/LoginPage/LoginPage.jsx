@@ -13,7 +13,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='flex flex-col justify-between items-center h-screen p-5'>
+    <div className='flex flex-col justify-between items-center h-screen p-5 bg-[#F4F0EF]'>
+      <div className='w-[25rem] h-[3rem] bg-[#313030]'>k</div>
       <div>
         <h1>¡Tu compañero te está esperando!</h1>
         <p>Estás a solo unos pasos de darle un hogar a un nuevo amigo peludo.</p>
