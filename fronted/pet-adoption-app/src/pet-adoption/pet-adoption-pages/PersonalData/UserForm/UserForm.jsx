@@ -22,29 +22,29 @@ const UserForm = () => {
         type="name" 
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-[22rem] h-14  pl-4 rounded-lg bg-[#F4F0EF] border border-[#484646] placeholder-[#484646]" 
+        className="w-[22rem] h-14  pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
         placeholder="Nombre y Apellido" 
       />
       <input 
         type="date" 
         value={date}
         onChange={(e) => setDate(e.target.value)}
-        className="w-[22rem] h-14 mt-7 pl-4 rounded-lg bg-[#F4F0EF] border border-[#484646] placeholder-[#484646]" 
+        className="w-[22rem] h-14 mt-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
         placeholder="Fecha de nacimiento" 
       />
       <input 
         type="email" 
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-[22rem] h-14 my-7 pl-4 rounded-lg bg-[#F4F0EF] border border-[#484646] placeholder-[#484646]" 
+        className="w-[22rem] h-14 my-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
         placeholder="Correo electrónico" 
       />
-      <div className="relative w-[22rem] h-14 mb-7 pl-4 bg-[#F4F0EF] border border-[#484646] rounded-lg flex items-center">
+      <div className="relative w-[22rem] h-14 mb-7 pl-4 bg-main-background border border-neutral-gray rounded-lg flex items-center">
         <input 
           type={showPassword ? 'text' : 'password'} 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full h-full bg-transparent outline-none placeholder-[#484646] pl-1" 
+          className="w-full h-full bg-transparent outline-none placeholder-neutral-gray pl-1" 
           placeholder="Contraseña" 
         />
         <button 
@@ -79,7 +79,7 @@ const UserForm = () => {
         </button>
       </div>
       <p className="mb-20">En _______, respetamos tu privacidad. Toda la información que compartes con nosotros está protegida y se utiliza únicamente para conectar a personas con sus futuras mascotas o para ayudar a reubicar animales en nuevos hogares. No compartimos tus datos con terceros sin tu consentimiento. ¡Tu confianza es nuestra prioridad!</p>
-      <button type="submit" className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white bg-[#0C5A87]">Estoy de acuerdo, continuar</button>
+      <button type="submit" className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white bg-blue-primary">Estoy de acuerdo, continuar</button>
     </form>
   );
 };

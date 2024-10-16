@@ -4,7 +4,7 @@ import Close from "../../../assets/close-menu-icon.png";
 import { useState } from "react"
 const Navbar = () =>{
 
-    const [navbar, setNavbar] = useState(false);
+    const [navbar, setNavbar] = useState(true);
 
     const handlerMenu = (e) =>{
         e.preventDefault()
