@@ -1,0 +1,12 @@
+
+@media screen and (min-width: 1024px) {
+    .nav-desktop{
+
+        display: flex;
+        justify-content: flex-end;
+        max-width: 600px;
+    } 
+    .header-desktop{
+        margin: auto;
+    }
+}
