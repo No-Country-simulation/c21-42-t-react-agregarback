@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+input, button, textarea, select { font: inherit; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: 'Niramit', 'sans-serif';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img, video, svg {
+  height: auto;
+  max-width: 100%;
+}
