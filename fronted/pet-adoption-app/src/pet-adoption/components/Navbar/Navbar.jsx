@@ -26,7 +26,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="bg-[#F4F0EF] flex justify-around p-5 header-desktop">
+    <header className="bg-[#F4F0EF] flex justify-around p-5">
       <a href="">
         <img src={Logo} alt="dog" />
       </a>
@@ -37,9 +37,9 @@ const Navbar = () => {
       <nav
         className={`${
           navbar ? "hidden" : "block absolute"
-        } bg-[#F4F0EF] top-0 w-full py-5 p-4 h-full nav-desktop`}
+        } bg-[#F4F0EF] top-0 w-full py-5 p-4 h-full `}
       >
-        <div className={`${navbar ? "hidden" : "flex"} flex justify-around`}>
+        <div className="flex justify-around">
           <div>
             <img src={User} alt="user-icon" />
             <h4>nombre de usuario</h4>
