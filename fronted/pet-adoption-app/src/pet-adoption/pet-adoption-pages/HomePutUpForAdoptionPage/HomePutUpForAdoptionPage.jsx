@@ -1,8 +1,12 @@
 import React from 'react';
-
+import Form from '../../components/Form/Form';
+import Navbar from "../../components/Navbar/Navbar"
 const HomePutUpForAdoptionPage = () => {
   return (
-    <h1>Home Put Up For Adoption Page</h1>
+    <>
+    <Navbar />
+    <Form />
+    </>
   );
 };
 
