@@ -1,7 +1,7 @@
 import Logo from "../../../assets/logo.png";
 import Burger from "../../../assets/burger-menu-icon.png";
 import Close from "../../../assets/close-menu-icon.png";
-import User from "../../../assets/user-menu-icon.png";
+//import User from "../../../assets/user-menu-icon.png";
 import "../Navbar/Navbar.css"
 import { useState } from "react";
 
@@ -41,7 +41,7 @@ const Navbar = () => {
       >
         <div className="flex justify-around lg:hidden items-center lg:items-start">
           <div>
-            <img src={User} alt="user-icon" />
+            <img src="" alt="user-icon" />
             <h4>nombre de usuario</h4>
           </div>
           <img
