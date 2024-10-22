@@ -44,7 +44,13 @@ const UserSchema = new Schema({
     servicesOffered: [{ 
         type: Schema.Types.ObjectId, 
         ref: 'Service' 
-    }]
+    }],
+    conversationHistory: [
+        {
+            role: { type: String, required: true },
+            content: { type: String, required: true }
+        }
+    ]
 }, { 
     timestamps: true 
 });

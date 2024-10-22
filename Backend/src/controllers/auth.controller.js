@@ -22,7 +22,8 @@ export const register = async (req, res) => {
             password: passwordHash,
             userType,
             authMethod: authMethod || 'email',
-            phoneNumber
+            phoneNumber,
+            conversationHistory: [],
         });
         const userSaved = await newUser.save();
         const token = await createAccessToken({ id: userSaved._id });
@@ -35,6 +36,7 @@ export const register = async (req, res) => {
             userType: userSaved.userType,
             authMethod: userSaved.authMethod,
             phoneNumber: userSaved.phoneNumber,
+            ConversationHistory: userSaved.conversationHistory,
             createdAt: userSaved.createdAt,
             updatedAt: userSaved.updatedAt,
         });

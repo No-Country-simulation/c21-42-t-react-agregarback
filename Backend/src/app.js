@@ -5,6 +5,7 @@ import petOwnerRoutes from './routes/petOwner.routes.js'; // Rutas específicas 
 import caregiverRoutes from './routes/caregiver.routes.js'; // Rutas específicas para cuidadores
 import bookingRoutes from './routes/booking.routes.js'; // Gestión de reservas
 import adminRoutes from './routes/admin.routes.js'; // Administración de la plataforma
+import chatRoutes from './routes/chat.routes.js'; // Rutas de chat
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -27,5 +28,6 @@ app.use('/api/petowners', petOwnerRoutes); // Gestión de dueños de mascotas
 app.use('/api/caregivers', caregiverRoutes); // Gestión de cuidadores de mascotas
 app.use('/api/bookings', bookingRoutes); // Rutas de reservas de servicios
 app.use('/api/admin', adminRoutes); // Rutas administrativas (solo accesibles para administradores)
+app.use('/api/chat', chatRoutes); // Rutas de chat
 
 export default app;
