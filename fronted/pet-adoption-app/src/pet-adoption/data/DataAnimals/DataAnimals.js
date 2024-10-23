@@ -113,5 +113,118 @@ export const DataAnimals = {
             size: "Pequeño"
         }
     ],
-    cats: []
+    cats: [
+        {
+            name: "Luna",
+            image: "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97",
+            gender: "Femenino",
+            age: 2,
+            size: "Grande"
+        },
+        {
+            name: "Bella",
+            image: "https://images.unsplash.com/photo-1500603720222-eb7a1f997356?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTd8fHxlbnwwfHx8fHw%3D",
+            gender: "Femenino",
+            age: 3,
+            size: "Grande"
+        },
+        {
+            name: "Lucy",
+            image: "https://www.elsoldepuebla.com.mx/doble-via/162dug-por-que-vemos-tiernos-a-los-gatos-esto-dice-la-ciencia/ALTERNATES/LANDSCAPE_1140/%C2%BFPor%20qu%C3%A9%20vemos%20tiernos%20a%20los%20gatos-,%20esto%20dice%20la%20ciencia",
+            gender: "Femenino",
+            age: 4,
+            size: "Grande"
+        },
+        {
+            name: "Sophie",
+            image: "https://fotografias.lasexta.com/clipping/cmsimages02/2019/01/25/DB41B993-B4C4-4E95-8B01-C445B8544E8E/98.jpg?crop=4156,2338,x0,y219&width=1900&height=1069&optimize=high&format=webply",
+            gender: "Femenino",
+            age: 9,
+            size: "Mediana"
+        },
+        {
+            name: "Stella",
+            image: "https://puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg",
+            gender: "Femenino",
+            age: 9,
+            size: "Pequeña"
+        },
+        {
+            name: "Kitty",
+            image: "https://cdn.royalcanin-weshare-online.io/mSJIPmYBaxEApS7LNQb6/v1/ec62h-signs-your-cat-is-getting-old-hero-cat",
+            gender: "Femenino",
+            age: 11,
+            size: "Grande"
+        },
+        {
+            name: "Lily",
+            image: "https://www.purina.es/sites/default/files/2021-12/Temperatura%20corporal%20de%20los%20gatos_teaser_0.jpg",
+            gender: "Femenino",
+            age: 8,
+            size: "Mediana"
+        },
+        {
+            name: "Lola",
+            image: "https://cdn.royalcanin-weshare-online.io/fyI_PmYBaxEApS7LyAb0/v1/ec36h-is-your-cat-stressed-hero-cat",
+            gender: "Femenino",
+            age: 9,
+            size: "Pequeña"
+        },
+        {
+            name: "Ginger",
+            image: "https://www.hola.com/horizon/square/f543e6e1d66a-razas-gato-pelo-largo-t.jpg",
+            gender: "Femenino",
+            age: 7,
+            size: "Mediana"
+        },
+        {
+            name: "Oreo",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg1mb1VtQpTA7AJSVTgcX6vQfvJYYs8q-r5g&s",
+            gender: "Femenino",
+            age: 6,
+            size: "Mediana"
+        },
+        {
+            name: "Olive",
+            image: "https://www.mirringo.com.co/Portals/mirringo/Images/articulos-actualidad-gatuna/ciclo-de-vida-de-los-gatos/Interna-1-ciclo-de-vida-de-los-gatos.jpg?ver=2024-03-20-160432-910",
+            gender: "Femenino",
+            age: 6,
+            size: "Mediana"
+        },
+        {
+            name: "Molly",
+            image: "https://es.mypet.com/wp-content/uploads/sites/23/2021/03/el-celo-en-los-gatos-1.jpg?w=1024",
+            gender: "Femenino",
+            age: 4,
+            size: "Grande"
+        },
+        {
+            name: "Frankie",
+            image: "https://www.elespectador.com/resizer/v2/QL3MS3PBQZFTDENHWETX7EJ6OE.png?auth=713905e3d0028642fe39face5f56d4c528a3bd80d7b108851c008a603eab1209&width=920&height=613&smart=true&quality=60",
+            gender: "Femenino",
+            age: 4,
+            size: "Mediana"
+        },
+        {
+            name: "Cleo",
+            image: "https://img.freepik.com/foto-gratis/cerrar-lindo-gato-interior_23-2148882585.jpg?semt=ais_hybrid",
+            gender: "Femenino",
+            age: 11,
+            size: "Mediana"
+        },
+        {
+            name: "Willow",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU6f2oUGGreQpJeaEdO4EBQ7_j07pt_8v9-Q&s",
+            gender: "Femenino",
+            age: 11,
+            size: "Grande"
+        },
+        {
+            name: "Chloe",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQPniR0-vc13cp5tgLyvggNkcaVSPt1ygluQ&s",
+            gender: "Femenino",
+            age: 6,
+            size: "Grande"
+        }
+    ]
 };

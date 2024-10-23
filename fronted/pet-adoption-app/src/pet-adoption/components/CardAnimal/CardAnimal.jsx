@@ -3,11 +3,11 @@ import './CardAnimal.css';
 import ShareIcon from '@mui/icons-material/Share';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const CardAnimal = () => {
+const CardAnimal = ({ pet }) => {
   return (
-    <article className='p-2 blue-color-background text-white rounded-lg border-card width-100'>
+    <article className='p-2 blue-color-background text-white rounded-lg border-card width-100 flex flex-col'>
         <div className='flex justify-between items-center mb-3 mt-1'>
-            <h2 className='font-medium'>Gyoza</h2>
+            <h2 className='font-medium'>{pet.name}</h2>
             <div>
                 <a href="#">
                   <ShareIcon className='me-5' />
@@ -17,21 +17,21 @@ const CardAnimal = () => {
                 </a>
             </div>
         </div>
-        <div>
-          <img src="https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg" alt="Gyoza" className='width-100 height-auto rounded-lg border-image' />
+        <div className='grow flex flex-col'>
+          <img src={pet.image} alt={pet.name} className='width-100 height-auto rounded-lg border-image grow' />
         </div>
         <div>
           <div className='flex mt-3'>
             <h4>Sexo:&nbsp;</h4>
-            <p className='font-light'>Hembra</p>
+            <p className='font-light'>{pet.gender}</p>
           </div>
           <div className='flex mt-1'>
             <h4>Edad:&nbsp;</h4>
-            <p className='font-light'>10 años</p>
+            <p className='font-light'>{pet.age} años</p>
           </div>
           <div className='flex mt-1'>
             <h4>Tamaño:&nbsp;</h4>
-            <p className='font-light'>Mediana</p>
+            <p className='font-light'>{pet.size}</p>
           </div>
           <div className='text-center mt-2'>
             <a href="#" className='rounded-lg inline-block width-100 p-2 blue-dark-background-color'>Ver más</a>

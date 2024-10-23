@@ -1,0 +1,11 @@
+
+
+@media screen and (min-width: 1024px) {
+    #nav-user-container-desktop{
+
+        display: none;
+    }
+  
+}
+
+
