@@ -1,0 +1,23 @@
+.slick-dots {
+    position: absolute; /* Asegúrate de que el contenedor sea absoluto si necesitas posicionarlo dentro de otro contenedor */
+    bottom: 16px; /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%); /* Centra los puntos */
+    height: auto; /* Altura definida */
+}
+
+.slick-dots li {
+    margin: 0 10px; /* Espaciado entre puntos, ajusta según sea necesario */
+}
+
+.slick-dots li button::before {
+    font-size: 16px;
+    color: #C9C6C5; /* Color personalizado para los puntos */
+    opacity: 0.5;   /* Opacidad para los puntos inactivos */
+}
+  
+.slick-dots li.slick-active button::before {
+    font-size: 16px;
+    color: #115372; /* Color para el punto activo */
+    opacity: 1;     /* Puntos activos completamente visibles */
+}
