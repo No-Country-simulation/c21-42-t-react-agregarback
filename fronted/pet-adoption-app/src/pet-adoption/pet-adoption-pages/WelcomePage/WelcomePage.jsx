@@ -5,7 +5,7 @@ const WelcomePage = () => {
   const navigate = useNavigate();
 
   const handleCreateAccount = () => {
-    navigate('/register');
+    navigate('/create-account');
   };
 
   const handleLogin = () => {
@@ -22,8 +22,8 @@ const WelcomePage = () => {
           <p className="font-semibold">Conectamos corazones humanos con patitas que necesiten un hogar</p>
         </div>
         <div className="flex flex-col mb-2">
-          <button className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white  bg-blue-primary" aria-label="Crear una cuenta">Crear una cuenta</button>
-          <button className="w-[22rem] px-6 py-4 rounded-xl text-blue-primary border border-[#E8F7FE]" aria-label="Iniciar sesión">Iniciar sesión</button>
+          <button className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white  bg-blue-primary" aria-label="Crear una cuenta" onClick={handleCreateAccount}>Crear una cuenta</button>
+          <button className="w-[22rem] px-6 py-4 rounded-xl text-blue-primary border border-[#E8F7FE]" aria-label="Iniciar sesión" onClick={handleLogin}>Iniciar sesión</button>
         </div>
         <img src="src/assets/paw-prints.png" alt="paw-prints" className="absolute right-[4rem] bottom-[-3.5rem]"/>
       </div>

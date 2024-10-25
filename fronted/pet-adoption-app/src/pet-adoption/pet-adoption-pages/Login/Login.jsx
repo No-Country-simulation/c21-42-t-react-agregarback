@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleCreateAccount = () => {
-    navigate('/personal-data');
+    navigate('/create-account');
   };
 
   const handleLogin = () => {
@@ -63,7 +63,7 @@ const Login = () => {
             <line x1="0.780334" y1="1.38818" x2="167.001" y2="1.38818" stroke="#484646"/>
             </svg>
           </div>
-          <button className="w-[22rem] px-6 py-4 rounded-xl border-none">
+          <button className="w-[22rem] px-6 py-4 rounded-xl border-none" onClick={handleCreateAccount}>
             <span className="text-secondary-orange font-semibold underline">Creá tu cuenta</span>
           </button>
         </div>

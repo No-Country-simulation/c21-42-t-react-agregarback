@@ -20,10 +20,14 @@ const CreateAccount = () => {
     <>
       <img src="src/assets/status-bar.jpg" alt="status bar" className="w-full"/>
       <div className="flex flex-col justify-center items-center h-screen p-5 bg-main-background">
-        <form className="p-4">
+        <form className="flex flex-col justify-center items-center p-4">
           <h1 className="text-2xl font-semibold text-neutral-gray">Crear cuenta</h1>
-          <input className="w-[22rem] h-14 my-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" placeholder="Correo electronico" aria-label="Correo electrónico"></input>
-          <button className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white  bg-blue-primary">Crear una cuenta</button>
+          <input 
+            className="w-[22rem] h-14 my-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
+            placeholder="Correo electronico" 
+            aria-label="Correo electrónico">
+          </input>
+          <button className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white  bg-blue-primary" onClick={handleCreateAccount}>Crear una cuenta</button>
         </form>
         <div>
           <div className="flex flex-row my-7">
@@ -46,7 +50,7 @@ const CreateAccount = () => {
           <ButtonLogin variant="secondary" ariaLabel="Continuar con Facebook">
             <MetaIcon></MetaIcon>
           </ButtonLogin>
-          <ButtonLogin variant="textOnly" ariaLabel="Iniciar sesión">Iniciar sesión</ButtonLogin>
+          <ButtonLogin variant="textOnly" ariaLabel="Iniciar sesión" onClick={handleLogin}>Iniciar sesión</ButtonLogin>
         </div>
         <img src="src/assets/paw-prints.png" alt="paw-prints" className="absolute right-[2rem] bottom-[3rem]"/>
       </div>
