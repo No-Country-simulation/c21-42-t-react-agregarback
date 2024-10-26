@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-[#F4F0EF] flex justify-around p-5 lg:px-16 lg:py-2 lg:items-center lg:justify-between">
-      <a href="">
+      <a href="/">
         <img src={Logo} alt="dog" />
       </a>
       <a href="" onClick={handlerMenu}>
@@ -60,7 +60,7 @@ const Navbar = () => {
         >
           
           <div className="mt-10 lg:mt-0">
-            <button className="flex w-40 justify-between items-center text-[22px] " onClick={handlerDropOne}>
+            <button className="flex w-40 justify-between items-center text-[22px]  text-[#OC5A87]" onClick={handlerDropOne}>
               Adopta
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -80,21 +80,21 @@ const Navbar = () => {
             </button>
             <div className={`${dropOne ? "flex flex-col" : "hidden" } lg:absolute lg:bg-white lg:w-40 lg:p-5 text-[20px] rounded-md`}>
             <ul className="text-gray-600">
-              <li>Adoptar</li>
-              <li>Poner en adopción</li>
-              <li>Guía de adopción</li>
+              <li><a href="">Adoptar</a></li>
+              <li><a href="/home-put-up-for-adoption">Poner en adopción</a></li>
+              <li><a href="">Guía de adopción</a></li>
             </ul>
             </div>
           </div>
 
 
           <div>
-          <button className=" my-1  text-left text-[22px] mt-10 w-40 lg:mt-0 lg:px-3 lg:w-30 lg:text-center ">Favoritos</button>
+          <button className=" my-1  text-left text-[22px] mt-10 w-40 lg:mt-0 lg:px-3 lg:w-30 lg:text-center text-[#OC5A87]"><a href="">Guardados</a></button>
           </div>
          
 
           <div className="mt-10 lg:mt-0">
-          <button className="flex w-40 justify-between items-center text-[22px] lg:w-30" onClick={handlerDropTwo}>
+          <button className="flex w-40 justify-between items-center text-[22px] lg:w-30 text-[#OC5A87]" onClick={handlerDropTwo}>
               Perfil
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,8 +114,8 @@ const Navbar = () => {
             </button>
             <div className={`${dropTwo ? "block" : "hidden"} lg:absolute lg:bg-white lg:w-40 lg:p-5 text-[20px] rounded-md`}>
             <ul className= "text-gray-600">
-              <li>Mis datos</li>
-              <li>Cerrar sesión</li>
+              <li><a href="">Mis datos</a></li>
+              <li><a href="">Cerrar sesión</a></li>
             </ul>
             </div>
           </div>

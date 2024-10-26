@@ -17,7 +17,7 @@ const UserForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4">
+    <form onSubmit={handleSubmit} className="flex flex-col justify-start items-center p-4">
         <input 
         type="name" 
         value={name}
