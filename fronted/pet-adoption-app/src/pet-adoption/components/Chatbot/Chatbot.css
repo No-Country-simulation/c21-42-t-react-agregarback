@@ -1,0 +1,154 @@
+:root {
+    --celeste-main: #6ec1e4;
+    --celeste-dark: #4a9ecb;
+    --background: #e3f2fd; /* fondo celeste claro */
+    --shadow-light: rgba(255, 255, 255, 0.8);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
+    --text-dark: #333;
+  }
+  
+  /* Estilos de fondo */
+  body {
+    background-color: var(--background);
+    color: var(--text-dark);
+  }
+  
+  /* Botón flotante */
+  .floating-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--celeste-main);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-dark);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .floating-button:hover {
+    background-color: var(--celeste-dark);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+  
+  /* Ventana del chat */
+  .chat-window {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1.5rem;
+    width: 24rem;
+    background-color: var(--background);
+    box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-dark);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  /* Indicador de carga */
+.loading-indicator {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background-color: #d9eefa;
+    color: var(--text-dark);
+    font-style: italic;
+    opacity: 0.7;
+  }
+  
+  
+  /* Contenedor de mensajes */
+  .message-container {
+    height: 15rem;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Estilos de mensajes */
+  .message {
+    margin-bottom: 0.75rem;
+  }
+  
+  .message-user {
+    text-align: right;
+  }
+  
+  .message-bot {
+    text-align: left;
+  }
+  
+  .message-content-user {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--celeste-main);
+    color: white;
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  }
+  
+  .message-content-bot {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background-color: #d9eefa; /* celeste muy claro */
+    color: var(--text-dark);
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  }
+  
+  /* Botones de mensajes sugeridos */
+  .suggested-messages {
+    margin-bottom: 1rem;
+  }
+  
+  .suggested-message-button {
+    background-color: var(--celeste-main);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    margin: 0.5rem 0.25rem;
+  }
+  
+  .suggested-message-button:hover {
+    background-color: var(--celeste-dark);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+  
+  /* Formulario para enviar mensajes */
+  .message-form {
+    display: flex;
+  }
+  
+  .message-input {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #b3e5fc;
+    border-radius: 1rem 0 0 1rem;
+    background-color: var(--background);
+    color: var(--text-dark);
+    outline: none;
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .message-input:focus {
+    box-shadow: 0 0 0 2px var(--celeste-main), inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+  
+  .submit-button {
+    background-color: var(--celeste-main);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: var(--celeste-dark);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+
+  
