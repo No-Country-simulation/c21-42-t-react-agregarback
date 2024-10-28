@@ -34,10 +34,18 @@ const PetSchema = new Schema({
         type: String, 
         trim: true 
     },
-    images: [{ 
+    firstImg: { 
         type: String, 
         trim: true 
-    }],
+    },
+    secondImg: { 
+        type: String, 
+        trim: true 
+    },
+    thirdImg: { 
+        type: String, 
+        trim: true 
+    },
     owner: { 
         type: Schema.Types.ObjectId, 
         ref: 'User', 

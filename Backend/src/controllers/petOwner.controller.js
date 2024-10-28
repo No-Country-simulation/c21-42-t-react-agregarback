@@ -16,7 +16,6 @@ export const getPets = async (req, res) => {
 // Obtener una mascota específica del dueño
 export const getPet = async (req, res) => {
     try {
-        // Validar datos de entrada
         getPetSchema.parse(req.params);
 
         const { petId } = req.params;
@@ -36,11 +35,10 @@ export const getPet = async (req, res) => {
 // Añadir una mascota
 export const addPet = async (req, res) => {
     try {
-        // Validar datos de entrada
         createPetSchema.parse(req.body);
 
-        const { name, type, age } = req.body;
-        const newPet = new Pet({ name, type, age, owner: req.userId });
+        const { name, type, age, firstImg, secondImg, thirdImg } = req.body;
+        const newPet = new Pet({ name, type, age, owner: req.userId, firstImg, secondImg, thirdImg });
         await newPet.save();
         res.status(201).json({ message: 'Mascota añadida exitosamente', pet: newPet });
     } catch (error) {
@@ -54,11 +52,15 @@ export const addPet = async (req, res) => {
 // Actualizar mascota
 export const updatePet = async (req, res) => {
     try {
-        // Validar datos de entrada
         updatePetSchema.parse({ id: req.params.petId, body: req.body });
 
         const { petId } = req.params;
-        const updatedPet = await Pet.findOneAndUpdate({ _id: petId, owner: req.userId }, req.body, { new: true });
+        const { name, type, age, firstImg, secondImg, thirdImg } = req.body;
+        const updatedPet = await Pet.findOneAndUpdate(
+            { _id: petId, owner: req.userId },
+            { name, type, age, firstImg, secondImg, thirdImg },
+            { new: true }
+        );
         if (!updatedPet) {
             return res.status(404).json({ message: 'Mascota no encontrada' });
         }
@@ -74,7 +76,6 @@ export const updatePet = async (req, res) => {
 // Eliminar mascota
 export const deletePet = async (req, res) => {
     try {
-        // Validar datos de entrada
         deletePetSchema.parse(req.params);
 
         const { petId } = req.params;
@@ -94,7 +95,6 @@ export const deletePet = async (req, res) => {
 // Reservar un servicio
 export const bookService = async (req, res) => {
     try {
-        // Validar datos de entrada
         createBookingSchema.parse(req.body);
 
         const { service, date, caregiverId } = req.body;
