@@ -19,6 +19,45 @@ const router = Router();
  *     responses:
  *       200:
  *         description: Lista de mascotas obtenida exitosamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                   type:
+ *                     type: string
+ *                     enum: [dog, cat, bird, other]
+ *                   age:
+ *                     type: integer
+ *                   gender:
+ *                     type: string
+ *                     enum: [male, female]
+ *                   breed:
+ *                     type: string
+ *                   healthStatus:
+ *                     type: object
+ *                     properties:
+ *                       vaccines:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *                       otherDetails:
+ *                         type: string
+ *                   history:
+ *                     type: string
+ *                   firstImg:
+ *                     type: string
+ *                   secondImg:
+ *                     type: string
+ *                   thirdImg:
+ *                     type: string
+ *                   adoptionStatus:
+ *                     type: string
+ *                     enum: [available, adopted]
  *       401:
  *         description: No autorizado
  *       500:
@@ -40,7 +79,43 @@ router.get('/pets', authRequired, getPets);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CreatePet'
+ *             type: object
+ *             required:
+ *               - name
+ *               - type
+ *               - age
+ *               - gender
+ *               - owner
+ *             properties:
+ *               name:
+ *                 type: string
+ *               type:
+ *                 type: string
+ *                 enum: [dog, cat, bird, other]
+ *               age:
+ *                 type: integer
+ *               gender:
+ *                 type: string
+ *                 enum: [male, female]
+ *               breed:
+ *                 type: string
+ *               healthStatus:
+ *                 type: object
+ *                 properties:
+ *                   vaccines:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   otherDetails:
+ *                     type: string
+ *               history:
+ *                 type: string
+ *               firstImg:
+ *                 type: string
+ *               secondImg:
+ *                 type: string
+ *               thirdImg:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Mascota creada exitosamente
@@ -74,7 +149,37 @@ router.post('/pets', authRequired, validateSchema(createPetSchema), addPet);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UpdatePet'
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               type:
+ *                 type: string
+ *                 enum: [dog, cat, bird, other]
+ *               age:
+ *                 type: integer
+ *               gender:
+ *                 type: string
+ *                 enum: [male, female]
+ *               breed:
+ *                 type: string
+ *               healthStatus:
+ *                 type: object
+ *                 properties:
+ *                   vaccines:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   otherDetails:
+ *                     type: string
+ *               history:
+ *                 type: string
+ *               firstImg:
+ *                 type: string
+ *               secondImg:
+ *                 type: string
+ *               thirdImg:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Mascota actualizada exitosamente
@@ -131,7 +236,25 @@ router.delete('/pets/:petId', authRequired, validateSchema(deletePetSchema), del
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CreateBooking'
+ *             type: object
+ *             required:
+ *               - bookingType
+ *               - pet
+ *               - date
+ *             properties:
+ *               bookingType:
+ *                 type: string
+ *                 enum: [walking, daycare, grooming]
+ *               pet:
+ *                 type: string
+ *               caregiver:
+ *                 type: string
+ *               date:
+ *                 type: string
+ *                 format: date-time
+ *               status:
+ *                 type: string
+ *                 enum: [pending, completed, canceled]
  *     responses:
  *       201:
  *         description: Reserva creada exitosamente
@@ -156,6 +279,24 @@ router.post('/book', authRequired, validateSchema(createBookingSchema), bookServ
  *     responses:
  *       200:
  *         description: Lista de reservas obtenida exitosamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   service:
+ *                     type: string
+ *                   date:
+ *                     type: string
+ *                     format: date-time
+ *                   status:
+ *                     type: string
+ *                   pet:
+ *                     type: string
+ *                   caregiver:
+ *                     type: string
  *       401:
  *         description: No autorizado
  *       500:

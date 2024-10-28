@@ -146,9 +146,15 @@ export const createPetSchema = z.object({
         otherDetails: z.string().optional().transform(value => value.trim())
     }).optional(),
     history: z.string().optional().transform(value => value.trim()),
-    firstImg: z.string().optional().url('Debe ser una URL válida'),
-    secondImg: z.string().optional().url('Debe ser una URL válida'),
-    thirdImg: z.string().optional().url('Debe ser una URL válida')
+    firstImg: z.string().optional().refine((val) => !val || /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(val), {
+        message: 'Debe ser una URL válida'
+    }),
+    secondImg: z.string().optional().refine((val) => !val || /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(val), {
+        message: 'Debe ser una URL válida'
+    }),
+    thirdImg: z.string().optional().refine((val) => !val || /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(val), {
+        message: 'Debe ser una URL válida'
+    })
 });
 
 // Esquema para actualizar una mascota existente
@@ -166,9 +172,15 @@ export const updatePetSchema = z.object({
             otherDetails: z.string().optional().transform(value => value.trim())
         }).optional(),
         history: z.string().optional().transform(value => value.trim()),
-        firstImg: z.string().optional().url('Debe ser una URL válida'),
-        secondImg: z.string().optional().url('Debe ser una URL válida'),
-        thirdImg: z.string().optional().url('Debe ser una URL válida')
+        firstImg: z.string().optional().refine((val) => !val || /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(val), {
+            message: 'Debe ser una URL válida'
+        }),
+        secondImg: z.string().optional().refine((val) => !val || /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(val), {
+            message: 'Debe ser una URL válida'
+        }),
+        thirdImg: z.string().optional().refine((val) => !val || /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(val), {
+            message: 'Debe ser una URL válida'
+        })
     })
 });
 
