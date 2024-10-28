@@ -1,87 +1,88 @@
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import "./OnboardingPage.css";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const OnboardingPage = () => {
-  const sliderRef = useRef(null); // Usamos useRef para obtener acceso al Slider
+const Onboarding = () => {
+  const [step, setStep] = useState(1);
+  const [exiting, setExiting] = useState(false); // Estado para manejar la salida
+  const navigate = useNavigate();
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
+  const nextStep = () => {
+    if (step < 3) {
+      setExiting(true); // Activa el estado de salida
+      setTimeout(() => {
+        setStep(step + 1);
+        setExiting(false); // Desactiva el estado de salida después de la transición
+      }, 300); // Duración de la transición
+    } else {
+      navigate('/login'); // Redirige al login en el último paso
+    }
   };
 
-  // Función para ir a la siguiente diapositiva
-  const nextSlide = () => {
-    sliderRef.current.slickNext();
+  const skip = () => {
+    navigate('/login'); // Redirige al login al presionar "Saltar"
   };
 
   return (
-    <div className="w-full max-w-[412px] h-[892px] mx-auto">
-      <Slider ref={sliderRef} {...settings}>
-        {/* Primera vista */}
-        <div className="bg-white h-auto">
-          <div className='flex flex-col mt-8 items-center'>
-            <h2>Nombre de la aplicacion</h2>
-            <img src="/OnboardingPage/imagen1.png" alt="Imagen 1" className="w-1/2 mb-4 mt-10" />
-            <h2 className="text-xl font-bold mb-2 mt-10">¡Tu compañero te está esperando!</h2>
-            <p className=" text-gray-600 mb-6 mt-3">
-              <span className='font-semibold'>Encuentra a tu compañero ideal</span> y dale un hogar <br />
-              lleno de amor. Nuestra app <span className='font-semibold'> conecta a personas como</span> <br />
-              <span className='font-semibold'>tú con refugios</span> que cuidan a mascotas que necesitan <br />
-              ser adoptados
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 relative">
+      <div className="absolute top-4 left-0 right-0 flex justify-between items-center px-6">
+        <img src='/OnboardingPage/logo.png' alt='logo' width={61} height={55} />
+        <img src="/OnboardingPage/PetConnect.png" alt="PetConnect" width={211} height={39} />
+        <img src='/OnboardingPage/close.png' alt='icon' width={61} height={55} />
+      </div>
+
+      <div
+        className={`p-6 text-center mt-20 transition-all duration-300 ${exiting ? 'opacity-0 transform translate-x-10' : 'opacity-100 translate-x-0'}`}
+      >
+        {step === 1 && (
+          <>
+            <div className='relative'>
+              <img src="/OnboardingPage/imagen1.png" alt="Onboarding 1" className="w-64 mx-auto mb-10" />
+            </div>
+            <p className="text-[24px] text-[#484646] font-semibold mb-5">¡Tu compañero te está esperando!</p>
+            <p className="text-[16px] text-[#484646] text-left mb-8 ">
+              <span className='font-semibold'>Encuentra a tu compañero ideal </span>
+              y dale un hogar lleno de amor. Nuestra app
+              <span className='font-semibold'> conecta a personas como tú con refugios</span> que cuidan a mascotas que necesitan ser adoptados.
             </p>
-          </div>
-          <div className='p-5'>
-            <button onClick={nextSlide} className=" w-[380px] h-[50px] bg-[#0C5A87] text-white py-2 px-6 rounded-lg">Siguiente</button>
-          </div>
-          <div className='text-center text-[#CB7A01] text-[16px] font-medium'>
-            <button className="mt-4 underline">Saltar</button>
-          </div>
-        </div>
+            <button onClick={nextStep} className="w-[380px] h-[50px] py-2 px-4 bg-blue-primary text-[16px] font-semibold text-[#E8F7FE] rounded-[12px] tracking-[2px]">Siguiente</button>
+            <button onClick={skip} className="mt-4 text-[16px] text-secondary-orange underline">Saltar</button>
+          </>
+        )}
 
+        {step === 2 && (
+          <>
+            <div className='relative'>
+              <img src="/OnboardingPage/Imagen2.png" alt="Onboarding 2" className="w-64 mx-auto mb-20" />
+            </div>
+            <p className="text-[24px] text-[#484646] font-semibold mb-10">Ayuda mascotas</p>
+            <p className="text-[16px] text-[#484646] text-left mb-20 ">
+              Publica a las mascotas que necesitan un nuevo hogar y ayuda a encontrarles una familia.
+            </p>
+            <button onClick={nextStep} className="w-[380px] h-[50px] py-2 px-4 bg-blue-primary text-[16px] font-semibold text-[#E8F7FE] rounded-[12px] tracking-[2px]">Siguiente</button>
+            <button onClick={skip} className="mt-4 text-[16px] text-secondary-orange underline">Saltar</button>
+          </>
+        )}
 
-        {/* Segunda vista */}
-        <div className="bg-white h-auto">
-          <div className='flex flex-col mt-8 items-center'>
-          <h2>Nombre de la aplicacion</h2>
-          <img src="/OnboardingPage/Imagen2.png" alt="Imagen 2 mt-10" className="w-1/2 mb-4" />
-          <h2 className="text-xl text-[24px] font-bold mb-2 mt-10">Ayuda mascotas</h2>
-          <p className="text-gray-600 text-[16px] mb-6 mt-3">Publica a las mascotas que necesitan un nuevo hogar <br />
-          y ayuda a encontrarles una familia
-          </p>
-          </div>
-          <div className='p-5'>
-            <button onClick={nextSlide} className=" w-[380px] h-[50px] bg-[#0C5A87] text-white py-2 px-6 rounded-lg">Siguiente</button>
-          </div>
-          <div className='text-center text-[#CB7A01] text-[16px] font-medium'>
-            <button className="mt-4 underline">Saltar</button>
-          </div>
-        </div>
+        {step === 3 && (
+          <>
+            <img src="/OnboardingPage/imagen3.png" alt="Onboarding 3" className="w-64 mx-auto mb-20" />
+            <p className="text-[24px] text-[#484646] font-semibold mb-10">¡Siempre cerca!</p>
+            <p className="text-[16px] text-[#484646] text-left mb-8 ">
+              Accede a consejos y contacto con veterinarios para el cuidado de tus mascotas.
+            </p>
+            <button onClick={nextStep} className="w-[380px] h-[50px] py-2 px-4 bg-blue-primary text-[16px] font-semibold text-[#E8F7FE] rounded-[12px] tracking-[2px]">Siguiente</button>
+            <button onClick={skip} className="mt-4 text-[16px] text-secondary-orange underline">Saltar</button>
+          </>
+        )}
+      </div>
 
-        {/* Tercera vista */}
-        <div className="bg-white h-screen">
-          <div className='flex flex-col mt-8 items-center '>
-          <h2>Nombre de la aplicacion</h2>
-          <img src="/OnboardingPage/imagen3.png" alt="Imagen 3" className="w-1/2 mb-4" />
-          <h2 className="text-xl font-bold mb-2 mt-10">¡Siempre cerca!</h2>
-          <p className="text-center text-gray-600 mb-6">Accede a consejos y contacta con veterinarios para el cuidado de las mascotas...</p>           
-          </div>
-          <div className='p-5'>
-            <button onClick={nextSlide} className=" w-[380px] h-[50px] bg-[#0C5A87] text-white py-2 px-6 rounded-lg">Siguiente</button>
-          </div>
-          <div className='text-center text-[#CB7A01] text-[16px] font-medium'>
-            <button className="mt-4 underline">Saltar</button>
-          </div>
-        </div>
-      </Slider>
+      <div className="flex space-x-8 mt-8">
+        <span className={`h-2 w-2 rounded-full ${step === 1 ? 'bg-blue-600' : 'bg-gray-400'}`}></span>
+        <span className={`h-2 w-2 rounded-full ${step === 2 ? 'bg-blue-600' : 'bg-gray-400'}`}></span>
+        <span className={`h-2 w-2 rounded-full ${step === 3 ? 'bg-blue-600' : 'bg-gray-400'}`}></span>
+      </div>
     </div>
   );
 };
 
-export default OnboardingPage;
+export default Onboarding;

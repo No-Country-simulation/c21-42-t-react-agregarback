@@ -16,7 +16,8 @@ function App() {
     <>
      <Router>
       <Routes>
-        <Route path='/' element={<HomeAdoptPage />} />
+        <Route path='/' element={<OnboardingPage />} />
+        <Route path='/home-adopt' element={<HomeAdoptPage />} />
         <Route path='/home-put-up-for-adoption' element={<HomePutUpForAdoptionPage />} />
         <Route path='/welcome-page' element={<WelcomePage />} />
         <Route path='/create-account' element={<CreateAccount />} />
@@ -24,7 +25,6 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/loading-screen' element={<LoadingScreenPage />} />
         <Route path='/initial-screen' element={<InitialScreenPage />} />
-        <Route path='/onboarding' element={<OnboardingPage />} />
       </Routes>
      </Router>
     </>
