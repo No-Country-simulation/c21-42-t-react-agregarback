@@ -1,15 +1,43 @@
 import React, { useState } from 'react';
 
 const UserForm = () => {
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    date: '',
+    email: '',
+    password: '',
+  });
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name) newErrors.name = 'Nombre es requerido';
+    if (!formData.date) newErrors.date = 'Fecha de nacimiento es requerida';
+    if (!formData.email) {
+      newErrors.email = 'Correo electrónico es requerido';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Correo electrónico no es válido';
+    }
+    if (!formData.password || formData.password.length < 6) {
+      newErrors.password = 'La contraseña debe tener al menos 6 caracteres';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
-    console.log('Form submitted:', { email, password });
+    event.preventDefault();
+    if (validateForm()) {
+      console.log('Form submitted:', formData);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -20,30 +48,39 @@ const UserForm = () => {
     <form onSubmit={handleSubmit} className="flex flex-col justify-start items-center p-4">
         <input 
         type="name" 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        name="name" 
+        value={formData.name} 
+        onChange={handleInputChange} 
         className="w-[22rem] h-14  pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
         placeholder="Nombre y Apellido" 
       />
+      {errors.name && <span className="text-red-500">{errors.name}</span>}
+
       <input 
-        type="date" 
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        className="w-[22rem] h-14 mt-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
-        placeholder="Fecha de nacimiento" 
+       type="date" 
+       name="date" 
+       value={formData.date} 
+       onChange={handleInputChange} 
+       className="w-[22rem] h-14 mt-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
+       placeholder="Fecha de nacimiento" 
       />
+      {errors.date && <span className="text-red-500">{errors.date}</span>}
+
       <input 
         type="email" 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        name="email" 
+        value={formData.email} 
+        onChange={handleInputChange}
         className="w-[22rem] h-14 my-7 pl-4 rounded-lg bg-main-background border border-neutral-gray placeholder-neutral-gray" 
         placeholder="Correo electrónico" 
       />
+      {errors.email && <span className="text-red-500">{errors.email}</span>}
       <div className="relative w-[22rem] h-14 mb-7 pl-4 bg-main-background border border-neutral-gray rounded-lg flex items-center">
         <input 
           type={showPassword ? 'text' : 'password'} 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="password" 
+          value={formData.password} 
+          onChange={handleInputChange}
           className="w-full h-full bg-transparent outline-none placeholder-neutral-gray pl-1" 
           placeholder="Contraseña" 
         />
@@ -78,6 +115,7 @@ const UserForm = () => {
           )}
         </button>
       </div>
+      {errors.password && <span className="text-red-500">{errors.password}</span>}
       <p className="mb-20">En _______, respetamos tu privacidad. Toda la información que compartes con nosotros está protegida y se utiliza únicamente para conectar a personas con sus futuras mascotas o para ayudar a reubicar animales en nuevos hogares. No compartimos tus datos con terceros sin tu consentimiento. ¡Tu confianza es nuestra prioridad!</p>
       <button type="submit" className="w-[22rem] px-6 py-4 mb-1 rounded-xl text-white bg-blue-primary">Estoy de acuerdo, continuar</button>
     </form>
