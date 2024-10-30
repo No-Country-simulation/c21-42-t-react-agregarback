@@ -9,6 +9,7 @@ module.exports = {
       'text-white': '#E8F7FE',
       'secondary-orange': '#CB7A01',
       'blue-login': 'E8F7FE',
+      'blue-primary-30': '#0C5A87'
     },
     fontFamily: {
       mainFont: ['Niramit', 'sans-serif'],

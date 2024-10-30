@@ -3,6 +3,7 @@ import { useState } from "react";
 import CloseModal from "../../../assets/close-modal-icon.svg";
 import AdoptMe from "../../../assets/img-adopt-me.svg";
 import Check from "../../../assets/check.svg";
+
 const Form = () => {
 
   const [firstImg, setFirstImg] = useState();
@@ -10,7 +11,7 @@ const Form = () => {
   const [thirdImg, setThirdImg] =  useState();
   const [closeModal, setCloseModal] = useState(true);
   const [closeSecModal, setSecCloseModal] = useState(true);
-  const [showModal, hiddenModal] = useState(true)
+
     const handleImageChange = (e, setFormImage) => {
       const file = e.target.files[0];
       if (file) {
@@ -23,19 +24,22 @@ const Form = () => {
     const handlerModal = (e)=>{
       e.preventDefault();
       setCloseModal(!closeModal)
+      window.scrollTo({ top: 0 });
     }
 
     const handlerSecModal = (e)=>{
+      e.preventDefault();
+      setSecCloseModal(!closeSecModal);
+    }
+    const handlerContinue = (e) =>{
         e.preventDefault();
-        setSecCloseModal(!closeSecModal);
+        setCloseModal(true)
+        setSecCloseModal(false)
     }
-    const hanlderContinue = (e)=>{
-          e.preventDefault();
-          hiddenModal(!showModal);
-    }
+
   return (
-    <section className="flex items-center m-5 flex-col">
-      <div className={`${closeModal ? "hidden": "block lg:flex lg:justify-center"} absolute w-full h-[150vh] bg-[#0369a1] bg-opacity-50 top-0 z-10`}>
+    <section className="flex items-center flex-col bg-main-background">
+      <div className={`${closeModal ? "hidden": "block lg:flex lg:justify-center"} absolute w-full h-[150vh] bg-[#0369a1] bg-opacity-50 top-0 z-50 `}>
         <div className="box-border absolute my-auto mx-10 top-[20%] bg-[#0369a1] opacity-100 rounded-md p-10 flex flex-col">
           <div className="flex justify-between">
           <h4 className="text-[30px] text-text-white font-bold">¿Todo listo?</h4>
@@ -47,11 +51,11 @@ const Form = () => {
         La info clara ayudará a que tu peludo encuentre su nuevo hogar más rápido.
         ¡Gracias por hacerlo posible!
         </p>
-        <button className="p-4 bg-secondary-orange rounded-lg text-text-white font-bold text-[22px] mt-6 self-end" onClick={hanlderContinue}>Continuar</button>
+        <button className="p-4 bg-secondary-orange rounded-lg text-text-white font-bold text-[22px] mt-6 self-end" onClick={handlerContinue}>Continuar</button>
         </div>
       </div>
 
-      <div className={`${closeSecModal ? "hidden" : "block"} w-full  bg-[#0369a1] h-[250vh]  absolute top-0 left-0 flex flex-col lg:h-[160vh] ${showModal ? "opacity-0": "opacity-100 z-10"}`}>
+      <div className={`${closeSecModal ? "hidden" : ""} w-full  bg-[#0369a1] h-[250vh]  absolute top-0 left-0 flex flex-col lg:h-[160vh] z-50`}>
       <img src={CloseModal} alt="close" className="w-10 self-end m-8 cursor-pointer" onClick={handlerSecModal} />
         <div className="flex box-border flex-col max-w-[500px] mx-auto items-center p-10">
         
@@ -65,11 +69,11 @@ const Form = () => {
           a tu compañero a encontrar una nueva familia! Pronto recibirás notificaciones de posibles 
           adoptantes interesados.
           </h5>
-       <button className="p-2 text-text-white text-[20px] bg-secondary-orange w-full rounded-lg mt-5">Entendido</button>
+       <button className="p-2 text-text-white text-[20px] bg-secondary-orange w-full rounded-lg mt-5" onClick={handlerSecModal}>Entendido</button>
         </div>
        
       </div>
-      <form className="flex flex-col gap-5 items-center text-left max-w-[600px]">
+      <form className="flex flex-col gap-5 items-center text-left max-w-[600px] m-5">
         <div className="flex flex-col w-full  ">
           <h4 className="text-[#605e5e] font-bold text-[20px]">
             Agregá imágenes de la mascota en adopción
@@ -77,7 +81,9 @@ const Form = () => {
           <div className="flex w-full flex-wrap max-sm:justify-center">
             <label
               htmlFor="image-upload-first"
-              className="bg-[#ffe18e] mt-4  w-[350px] h-[350px] flex items-center justify-center text-8xl text-[#605e5e] font-mono cursor-pointer max-sm:w-[300px] max-sm:h-[300px] bg-center bg-cover"
+              className="bg-[#ffe18e] mt-4  w-[350px] h-[350px] flex items-center justify-center 
+              text-8xl text-[#605e5e] font-mono cursor-pointer max-sm:w-[350px] max-sm:h-[300px] 
+              bg-center bg-cover rounded-3xl"
               accept="image/*"
               style={{
                 backgroundImage: firstImg ? `url(${firstImg})` : "none"
@@ -91,7 +97,9 @@ const Form = () => {
             <div className="flex flex-col max-sm:items-center">
               <label
                 htmlFor="image-upload-second"
-                className="bg-[#ffe18e] mt-4 ml-4 w-[165px] h-[165px] flex items-center justify-center text-8xl text-[#605e5e] font-mono cursor-pointer max-sm:w-[300px] max-sm:h-[300px] max-sm:ml-0 bg-cover bg-center"
+                className="bg-[#ffe18e] mt-4 ml-4 w-[165px] h-[165px] flex items-center justify-center
+                 text-8xl text-[#605e5e] font-mono cursor-pointer max-sm:w-[350px] max-sm:h-[300px] 
+                 max-sm:ml-0 bg-cover bg-center rounded-3xl"
                 accept="image/*"
                 style={{
                   backgroundImage: secondImg ? `url(${secondImg})` : "none"
@@ -110,7 +118,9 @@ const Form = () => {
 
               <label
                 htmlFor="image-upload-third"
-                className="bg-[#ffe18e] ml-4 mt-[20px] w-[165px] h-[165px] flex items-center justify-center text-8xl text-[#605e5e] font-mono cursor-pointer max-sm:w-[300px] max-sm:h-[300px] max-sm:ml-0 bg-center bg-cover"
+                className="bg-[#ffe18e] ml-4 mt-[20px] w-[165px] h-[165px] flex items-center 
+                justify-center text-8xl text-[#605e5e] font-mono cursor-pointer max-sm:w-[350px]
+                max-sm:h-[300px] max-sm:ml-0 bg-center bg-cover rounded-3xl"
                 accept="image/*"
                 style={{
                   backgroundImage: thirdImg ? `url(${thirdImg})` : "none"
