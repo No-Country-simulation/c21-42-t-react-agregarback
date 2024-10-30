@@ -39,7 +39,7 @@ const Form = () => {
 
   return (
     <section className="flex items-center flex-col bg-main-background">
-      <div className={`${closeModal ? "hidden": "block lg:flex lg:justify-center"} absolute w-full h-[150vh] bg-[#0369a1] bg-opacity-50 top-0 z-10 `}>
+      <div className={`${closeModal ? "hidden": "block lg:flex lg:justify-center"} absolute w-full h-[150vh] bg-[#0369a1] bg-opacity-50 top-0 z-50 `}>
         <div className="box-border absolute my-auto mx-10 top-[20%] bg-[#0369a1] opacity-100 rounded-md p-10 flex flex-col">
           <div className="flex justify-between">
           <h4 className="text-[30px] text-text-white font-bold">¿Todo listo?</h4>
@@ -55,7 +55,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className={`${closeSecModal ? "hidden" : ""} w-full  bg-[#0369a1] h-[250vh]  absolute top-0 left-0 flex flex-col lg:h-[160vh]`}>
+      <div className={`${closeSecModal ? "hidden" : ""} w-full  bg-[#0369a1] h-[250vh]  absolute top-0 left-0 flex flex-col lg:h-[160vh] z-50`}>
       <img src={CloseModal} alt="close" className="w-10 self-end m-8 cursor-pointer" onClick={handlerSecModal} />
         <div className="flex box-border flex-col max-w-[500px] mx-auto items-center p-10">
         

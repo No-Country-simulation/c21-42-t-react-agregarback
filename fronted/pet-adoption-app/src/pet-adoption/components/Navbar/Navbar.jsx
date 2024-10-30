@@ -4,10 +4,9 @@ import Close from "../../../assets/close-menu-icon.png";
 import User from "../../../assets/user-menu-icon.png";
 import Chat from "../../../assets/chat-icon.svg";
 import "../Navbar/Navbar.css"
-
 import { TiArrowSortedDown } from "react-icons/ti";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
     const [navbar, setNavbar] = useState(true);
     const [dropOne, setDropOne] = useState(false);
@@ -29,21 +28,19 @@ const Navbar = () => {
   }
 
   return (
-    <header className="bg-[#F4F0EF] flex justify-around p-5 lg:px-16 lg:py-2 lg:items-center ">
+    <header className="bg-[#F4F0EF] flex justify-evenly p-5 lg:py-2 lg:items-center ">
       
-      <a href="" onClick={handlerMenu}>
-        <img src={Burger} alt="" className={`${navbar ? "flex lg:hidden" : "hidden"}`} />
-      </a>
-      <a href="/">
+        <img src={Burger} alt="" className={`${navbar ? "flex lg:hidden" : "hidden"}`}  onClick={handlerMenu}/>
+      <Link to="/">
         <img src={Logo} alt="dog" />
-      </a>
-      <a href="">
+      </Link>
+      <Link to="">
         <img src={Chat} alt="" className="self-center w-9 lg:hidden"/>
-      </a>
+      </Link>
       <nav
         className={`${
           navbar ? "hidden lg:flex" : "flex absolute lg:static"
-        } bg-[#F4F0EF] top-0 w-full p-6 h-full flex-col lg:items-center lg:w-[750px] lg:justify-start`}
+        } bg-[#F4F0EF] top-0 w-full p-6 h-full flex-col lg:items-center lg:w-[750px] lg:justify-start z-30`}
       >
         <div className="flex justify-around lg:hidden items-center lg:items-start">
           <div>
@@ -73,16 +70,16 @@ const Navbar = () => {
             </button>
             <div className={`${dropOne ? "flex flex-col" : "hidden" } lg:absolute lg:bg-white lg:w-[200px] lg:p-2 text-[19px] rounded-md text-nowrap`}>
             <ul className="text-gray-600 text-[20px]">
-              <li><a href="/home-adopt" className="text-blue-primary-30">Adoptar</a></li>
-              <li><a href="/home-put-up-for-adoption" className="text-blue-primary-30">Poner en adopción</a></li>
-              <li><a href="" className="text-blue-primary-30">Guía de adopción</a></li>
+              <li><Link to="/home-adopt" className="text-blue-primary-30">Adoptar</Link></li>
+              <li><Link to="/home-put-up-for-adoption" className="text-blue-primary-30">Poner en adopción</Link></li>
+              <li><Link to="" className="text-blue-primary-30">Guía de adopción</Link></li>
             </ul>
             </div>
           </div>
 
 
           <div>
-          <button className=" my-1  text-left text-[24px] mt-10 w-[175px] lg:mt-0 lg:px-3 lg:w-30 lg:text-center text-blue-primary-30 font-bold"><a href="">Guardados</a></button>
+          <button className=" my-1  text-left text-[24px] mt-10 w-[200px] lg:mt-0 lg:px-3 lg:w-30 lg:text-center text-blue-primary-30 font-bold lg:w-[155px]"><Link to="">Guardados</Link></button>
           </div>
          
 
@@ -94,8 +91,8 @@ const Navbar = () => {
             </button>
             <div className={`${dropTwo ? "block" : "hidden"} lg:absolute lg:bg-white lg:w-[200px] lg:p-6 text-[20px] rounded-md box-border`}>
             <ul className= "text-gray-600">
-              <li><a href="/personal-data" className="text-blue-primary-30">Mis datos</a></li>
-              <li><a href="/login" className="text-blue-primary-30">Cerrar sesión</a></li>
+              <li><Link to="/personal-data" className="text-blue-primary-30">Mis datos</Link></li>
+              <li><Link to="/login" className="text-blue-primary-30">Cerrar sesión</Link></li>
             </ul>
             </div>
           </div>
