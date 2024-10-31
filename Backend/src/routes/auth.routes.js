@@ -8,7 +8,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/register:
+ * /api/auth/register:
  * post:
  *     summary: Registro de un nuevo usuario
  *     tags:
@@ -60,7 +60,7 @@ const router = Router();
 router.post('/register',validateSchema(registerSchema), register);
 /**
  * @swagger
- * /api/login:
+ * /api/auth/login:
  *   post:
  *     summary: Inicio de sesión de un usuario
  *     tags:
@@ -91,7 +91,7 @@ router.post('/register',validateSchema(registerSchema), register);
 router.post('/login', validateSchema(loginSchema),login);
 /**
  * @swagger
- * /api/logout:
+ * /api/auth/logout:
  *   post:
  *     summary: Cierre de sesión
  *     tags:
@@ -105,7 +105,7 @@ router.post('/login', validateSchema(loginSchema),login);
 router.post('/logout', logout);
 /**
  * @swagger
- * /api/verify:
+ * /api/auth/verify:
  *   get:
  *     summary: Verificar token de acceso
  *     tags:
@@ -119,7 +119,7 @@ router.post('/logout', logout);
 router.get('/verify', verifyToken);
 /**
  * @swagger
- * /api/profile:
+ * /api/auth/profile:
  *   get:
  *     summary: Obtener perfil de usuario
  *     tags:
@@ -133,7 +133,7 @@ router.get('/verify', verifyToken);
 router.get('/profile', authRequired, profile);
 /**
  * @swagger
- * /api/contact:
+ * /api/auth/contact:
  *   post:
  *     summary: Enviar mensaje de contacto
  *     tags:

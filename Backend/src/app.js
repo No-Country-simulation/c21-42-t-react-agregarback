@@ -24,7 +24,7 @@ app.use(cookieParser()); // Para manejar cookies
 
 // Rutas
 app.use('/api/auth', authRoutes); // Autenticación y manejo de usuarios
-app.use('/api/petowners', petOwnerRoutes); // Gestión de dueños de mascotas
+app.use('/api/pet-owner', petOwnerRoutes); // Gestión de dueños de mascotas
 app.use('/api/caregivers', caregiverRoutes); // Gestión de cuidadores de mascotas
 app.use('/api/bookings', bookingRoutes); // Rutas de reservas de servicios
 app.use('/api/admin', adminRoutes); // Rutas administrativas (solo accesibles para administradores)

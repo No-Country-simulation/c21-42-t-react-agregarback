@@ -3,8 +3,18 @@ import Booking from '../models/booking.model.js';
 import { createPetSchema, updatePetSchema, getPetSchema, deletePetSchema } from '../schemas/pet.schema.js';
 import { createBookingSchema } from '../schemas/booking.schema.js';
 
-// Obtener mascotas del dueño
+// Obtener todas las mascotas
 export const getPets = async (req, res) => {
+    try {
+        const pets = await Pet.find();
+        res.json(pets);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener mascotas', error });
+    }
+};
+
+// Obtener mascotas del dueño
+export const getCaregiverPets = async (req, res) => {
     try {
         const pets = await Pet.find({ owner: req.userId });
         res.json(pets);
@@ -13,13 +23,14 @@ export const getPets = async (req, res) => {
     }
 };
 
+
 // Obtener una mascota específica del dueño
 export const getPet = async (req, res) => {
     try {
         getPetSchema.parse(req.params);
 
         const { petId } = req.params;
-        const pet = await Pet.findOne({ _id: petId, owner: req.userId });
+        const pet = await Pet.findOne({ _id: petId});
         if (!pet) {
             return res.status(404).json({ message: 'Mascota no encontrada' });
         }

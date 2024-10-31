@@ -63,7 +63,7 @@ const router = Router();
  *       500:
  *         description: Error interno del servidor
  */
-router.get('/pets', authRequired, getPets);
+router.get('/pets', getPets);
 
 // Añadir una nueva mascota
 /**
@@ -126,7 +126,7 @@ router.get('/pets', authRequired, getPets);
  *       500:
  *         description: Error interno del servidor
  */
-router.post('/pets', authRequired, validateSchema(createPetSchema), addPet);
+router.post('/pets', validateSchema(createPetSchema), addPet);
 
 // Actualizar los datos de una mascota
 /**
