@@ -1,0 +1,9 @@
+@media screen and (max-width: 25.4375rem) {
+    .justify-start-25rem4375 {
+        justify-content: flex-start !important;
+    }
+}
+
+.width-100 {
+    width: 100%;
+}

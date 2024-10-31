@@ -1,9 +1,23 @@
 import React from 'react';
-import './CardAnimal.css';
 import ShareIcon from '@mui/icons-material/Share';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { sendPetInformation } from '../../../actions/petActions';
+import './CardAnimal.css';
 
 const CardAnimal = ({ pet }) => {
+  const navigate = useNavigate(),
+  dispatch = useDispatch();
+
+  const navigateToPetDetails = (e) => {
+    e.preventDefault();
+
+    dispatch(sendPetInformation(pet));
+
+    navigate('/pet-details');
+  }
+
   return (
     <article className='p-2 blue-color-background text-white rounded-lg border-card width-100 flex flex-col'>
         <div className='flex justify-between items-center mb-3 mt-1'>
@@ -34,7 +48,7 @@ const CardAnimal = ({ pet }) => {
             <p className='font-light'>{pet.size}</p>
           </div>
           <div className='text-center mt-2'>
-            <a href="#" className='rounded-lg inline-block width-100 p-2 blue-dark-background-color'>Ver más</a>
+            <a href="#" className='rounded-lg inline-block width-100 p-2 blue-dark-background-color' onClick={navigateToPetDetails}>Ver más</a>
           </div>
         </div>
     </article>
