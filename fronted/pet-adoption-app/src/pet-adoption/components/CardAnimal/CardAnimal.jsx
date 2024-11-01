@@ -32,7 +32,7 @@ const CardAnimal = ({ pet }) => {
             </div>
         </div>
         <div className='grow flex flex-col'>
-          <img src={pet.image} alt={pet.name} className='width-100 height-auto rounded-lg border-image grow' />
+          <img src={pet.firstImg} alt={pet.name} className='width-100 height-auto rounded-lg border-image grow' />
         </div>
         <div>
           <div className='flex mt-3'>

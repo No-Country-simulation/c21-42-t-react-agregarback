@@ -19,7 +19,7 @@ const CardAnimalDetail = ({ petDetail }) => {
                     <h1 className='text-[2rem] font-semibold'>{petDetail.name}</h1>
                 </div>
                 <div className='flex justify-center'>
-                    <img className='w-96 rounded-lg border-image' src={petDetail.image} alt={petDetail.name} />
+                    <img className='w-96 rounded-lg border-image' src={petDetail.firstImg} alt={petDetail.name} />
                 </div>
                 <div>
                     <ShareIcon sx={'color: #ADAAAA'} />
